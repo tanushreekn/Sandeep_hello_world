@@ -1,15 +1,13 @@
 pipeline {	
   agent {
-     docker {
-	 image ' maven:3.8.2-openjdk-8'
-     }
+    docker { image 'maven:3.8.2-openjdk-8'}
   }
   stages {
-     stage {
-        steps {
-	   sh 'mvn --version'
-	   sh 'mvn clean package'
-	 }
-      }	 
+    stage('build') {
+    steps {
+	    sh 'mvn --version'
+	    sh 'mvn clean package'
+	}
+    }	 
   }
 }
