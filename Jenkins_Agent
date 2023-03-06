@@ -1,19 +1,15 @@
 pipeline {	
-	agent {
-		docker {
-			image 'ubuntu:latest'
-		}
-	}
-    stages {	
-        stage('Build') {	
-            steps {	
-                sh 'cat /etc/lsb-release'
-            }	
-        }	
-        stage('Deploy') {	
-            steps {	
-                sh 'cat /etc/lsb-release'
-            }	
-        }			
-    }	
+  agent {
+     docker {
+	 image ' maven:3.8.2-openjdk-8'
+     }
+  }
+  stages {
+     stage {
+        steps {
+	   sh 'mvn --version'
+	   sh 'mvn clean package'
+	 }
+      }	 
+  }
 }
