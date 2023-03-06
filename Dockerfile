@@ -6,5 +6,5 @@ RUN mvn clean package
 
 FROM tomcat:jre8-temurin-focal
 ARG TEST=/var/lib
-COPY --from=mavenbuilder ${TEST}/target/Helloworldwarnew-1.0.0.war /usr/local/tomcat/webapps
+COPY --from=mavenbuilder ${TEST}/target/Sandeep_hello_world-1.0.0.war /usr/local/tomcat/webapps
 EXPOSE 8090
